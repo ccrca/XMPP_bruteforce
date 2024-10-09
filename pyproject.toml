@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "G0OFY_XMPP_BF_ONGOD"
+version = "0.1.0"
+description = "XMPP Bruteforce SASL SCRAM-SHA-1 Authentification Method"
+authors = ["LIBEREZTONTON"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyshark = "^0.6"
+scapy = "^2.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

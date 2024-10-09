@@ -1,0 +1,36 @@
+<?xml version='1.0'?>
+<stream:stream to='jabber.org' xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='1.0'>
+<?xml version='1.0'?>
+<stream:stream xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams'
+    from='jabber.org' id='80faaea8b3ec7106' version='1.0'>
+<stream:features>
+    <starttls xmlns='urn:ietf:params:xml:ns:xmpp-tls' />
+    <mechanisms xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
+        <mechanism>CRAM-MD5</mechanism>
+        <mechanism>LOGIN</mechanism>
+        <mechanism>PLAIN</mechanism>
+        <mechanism>DIGEST-MD5</mechanism>
+        <mechanism>SCRAM-SHA-1</mechanism>
+    </mechanisms>
+    <compression xmlns='http://jabber.org/features/compress'>
+        <method>zlib</method>
+    </compression>
+    <ver xmlns='urn:xmpp:features:rosterver'>
+        <optional />
+    </ver>
+</stream:features>
+<auth xmlns='urn:ietf:params:xml:ns:xmpp-sasl' mechanism='SCRAM-SHA-1' />
+<challenge xmlns='urn:ietf:params:xml:ns:xmpp-sasl'></challenge>
+<response xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>n,,n=koma_test,r=toto</response>
+<challenge xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
+    r=totoFe3A1scL7C0jtKsm+kcg96MWg769FuRu,s=HkllTjjnoioioiZW4F8WLboohey==,i=4096</challenge>
+<response xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
+    c=biws,r=totoFe3A1scL7C0jtKsm+kcg96MWg769FuRu,p=mZU2Qekd8JR7ybCtb3hnJMGEfIg=</response> <!-- Client final message -->
+<success xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>v=YQlegvbEwDo2o60YiK2iAkYyPKE=</success> <!-- Server final message / Server signature -->
+
+<!-- Username : koma_test -->
+<!-- Salt : base64 encoded HkllTjjnoioioiZW4F8WLboohey -->
+<!-- Proof : mZU2Qekd8JR7ybCtb3hnJMGEfIg= -->
+<!-- Itérations : 4096 -->
+<!-- Server nonce : Fe3A1scL7C0jtKsm+kcg96MWg769FuRu -->
+<!-- Client nonce : toto -->
