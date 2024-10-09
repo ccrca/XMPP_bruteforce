@@ -1,3 +1,4 @@
+# 09/10/24
 # SCRAM-SHA-1 decypher
 
 #  SaltedPassword  := Hi(Normalize(password), salt, i)
