@@ -1,4 +1,5 @@
-# XMPP Python Bruteforce - SASL SCRAM-SHA-1 Authentication 😁
+# XMPP Python Bruteforce
+# SASL SCRAM-SHA-1 Authentication 😁
 
 - [x] `Bruteforce with wordlist and random characters`
 - [x] `Wireshark Capture file`
@@ -38,6 +39,7 @@ poetry run python3 xmpp_bruteforcer.py -u "user" -pf "v0X8v3Bz2T0CJGbJQyF0X+HI4T
 ```
 
 **Using PCAP file**
+
 The tool depends on tshark for the pcap parsing tasks. I recommend you to use it with other available options : wordlist, password, random-prefix
 Enable the `-sh` `--show-packets` option to get a better a view on the XML content that is extracted.
 ```
