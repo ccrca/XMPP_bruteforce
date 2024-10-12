@@ -37,6 +37,38 @@ poetry run python3 xmpp_bruteforcer.py -u "user" -pf "v0X8v3Bz2T0CJGbJQyF0X+HI4T
 
 ```
 
+**Using PCAP file**
+The tool depends on tshark for the pcap parsing tasks. I recommend you to use it with other available options : wordlist, password, random-prefix
+Enable the `-sh` `--show-packets` option to get a better a view on the XML content that is extracted.
+```
+❯ python3 xmpp_bruteforcer.py -cp ./ch8.pcap -sh -p "pencil"
+Debug mode
+Using selector: EpollSelector
+Found 1 successful TCP streams.
+The First successful TCP stream number : 1
+----------------------------------------
+Packet 22 in TCP stream 1:
+xml_tag => <response xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
+xml_cdata => biwsbj11c2VybmFtZSxyPWJHRnhkVzlwYkdGeGRXOXBiR0Z4ZFc5cENnPT0K
+ => </response>
+out => 1
+response => RESPONSE
+cdata is not base64 decodable :p
+cdata => n,,n=username,r=bGFxdW9pbGFxdW9pbGFxdW9pCg==
+----------------------------------------
+Packet 25 in TCP stream 1:
+xml_tag => <challenge xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
+xml_cdata => cj1iR0Z4ZFc5cGJHRnhkVzlwYkdGeGRXOXBDZz09YkdFZ2JXRnVieUJoSUdacGJta2djMkVnY0dWcGJtVUsscz1rTTZsVGpqblpXNEY4V0xib3lhZ2NBPT0saT00MDk2Cg==
+ => </challenge>
+in => 1
+challenge => CHALLENGE
+cdata => r=bGFxdW9pbGFxdW9pbGFxdW9pCg==bGEgbWFubyBhIGZpbmkgc2EgcGVpbmUK,s=kM6lTjjnZW4F8WLboyagcA==,i=4096
+----------------------------------------
+--- Parameters extracted ---
+ {'user': 'username', 'proof': 'b3VobGV6b3pvbHVpbGEK', 'cnonce': 'bGFxdW9pbGFxdW9pbGFxdW9pCg==', 'snonce': 'bGEgbWFubyBhIGZpbmkgc2EgcGVpbmUK', 'b64_salt': 'kM6lTjjnZW4F8WLboyagcA==', 'serv_sign': 'bmlxdWVsZXRhCg=='}
+--- -------------------- ---
+```
+
 ### Help !!
 
 ```
@@ -115,37 +147,6 @@ Tested Client Proof : bf45fcbf7073d93d022466c94321745fe1c8e13b
 Actual Client Proof : bf45fcbf7073d93d022466c94321745fe1c8e13b
 
  (´-ω-`) Flag found : pencil !
-```
-
-The tool depends on tshark for the pcap parsing tasks. I recommend you to use it with other available options :wordlist, password, random-prefix
-Enable the `-sh` `--show-packets` option to get a better a view on the XML content that is extracted.
-```
-❯ python3 xmpp_bruteforcer.py -cp ./ch8.pcap -sh -p "pencil"
-Debug mode
-Using selector: EpollSelector
-Found 1 successful TCP streams.
-The First successful TCP stream number : 1
-----------------------------------------
-Packet 22 in TCP stream 1:
-xml_tag => <response xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
-xml_cdata => biwsbj11c2VybmFtZSxyPWJHRnhkVzlwYkdGeGRXOXBiR0Z4ZFc5cENnPT0K
- => </response>
-out => 1
-response => RESPONSE
-cdata is not base64 decodable :p
-cdata => n,,n=username,r=bGFxdW9pbGFxdW9pbGFxdW9pCg==
-----------------------------------------
-Packet 25 in TCP stream 1:
-xml_tag => <challenge xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
-xml_cdata => cj1iR0Z4ZFc5cGJHRnhkVzlwYkdGeGRXOXBDZz09YkdFZ2JXRnVieUJoSUdacGJta2djMkVnY0dWcGJtVUsscz1rTTZsVGpqblpXNEY4V0xib3lhZ2NBPT0saT00MDk2Cg==
- => </challenge>
-in => 1
-challenge => CHALLENGE
-cdata => r=bGFxdW9pbGFxdW9pbGFxdW9pCg==bGEgbWFubyBhIGZpbmkgc2EgcGVpbmUK,s=kM6lTjjnZW4F8WLboyagcA==,i=4096
-----------------------------------------
---- Parameters extracted ---
- {'user': 'username', 'proof': 'b3VobGV6b3pvbHVpbGEK', 'cnonce': 'bGFxdW9pbGFxdW9pbGFxdW9pCg==', 'snonce': 'bGEgbWFubyBhIGZpbmkgc2EgcGVpbmUK', 'b64_salt': 'kM6lTjjnZW4F8WLboyagcA==', 'serv_sign': 'bmlxdWVsZXRhCg=='}
---- -------------------- ---
 ```
 
 ## Resources
